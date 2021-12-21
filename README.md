@@ -1,4 +1,4 @@
-# 🐬🐬🐬 MySQL Explain Visualization.
+# MySQL Explain Visualization
 
 ![Image](public/introduction.png)
 
