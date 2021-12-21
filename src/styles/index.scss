@@ -1,0 +1,69 @@
+body {
+  font-family: 'Architects Daughter', 'Helvetica Neue', Helvetica, Arial, serif;
+}
+
+.node {
+  cursor: pointer;
+}
+
+p {
+  margin: 0;
+}
+
+.node__title {
+  font-weight: bold;
+  margin: 0;
+}
+
+#editor {
+  position: relative;
+  height: 400px;
+  width: 100%
+}
+
+header {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 20px;
+  background: #2e7bcf;
+  border-bottom: solid 1px #275da1;
+}
+
+header h1 {
+  letter-spacing: -1px;
+  color: #fff;
+  margin-bottom: 0.2em;
+  font-weight: normal;
+}
+
+header h2 {
+  font-size: 26px;
+  color: #9ddcff;
+  font-weight: normal;
+  line-height: 1.3;
+  letter-spacing: 0;
+}
+
+.gh-forkme {
+  position: absolute; top: 0; right: 0; border: 0;
+}
+
+// main
+
+#main {
+  margin: 1rem;
+}
+
+#main h3 {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 8px;
+  color: #474747;
+}
+
+#main h3:before {
+  content: "///";
+  color: #9ddcff;
+  padding-right: 0.3em;
+  margin-left: -2em;
+}
