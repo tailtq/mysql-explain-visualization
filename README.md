@@ -8,7 +8,7 @@ Turn MySQL Explain JSON into vector UML sequence diagrams
 
 
 ## Example
----
+
 We can turn
 ```json
 {
@@ -46,5 +46,5 @@ into
 
 
 ## Thanks
----
+
 Heavily inspired by [Workbench](https://www.mysql.com/products/workbench/) and [js-sequence-diagrams](https://bramp.github.io/js-sequence-diagrams/).
