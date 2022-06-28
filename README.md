@@ -171,7 +171,9 @@ We can turn
 
 into
 
-<img src="public/visualization.png" align="center">
+<p align="center">
+  <img src="public/visualization.png">
+</p>
 
 
 ## Thanks
