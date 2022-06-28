@@ -11,30 +11,198 @@ Turn MySQL Explain JSON into vector UML sequence diagrams
 
 We can turn
 ```json
-{
+{{
   "query_block": {
     "select_id": 1,
     "cost_info": {
-      "query_cost": "5935.00"
+      "query_cost": "1.26"
     },
-    "table": {
-      "table_name": "ABC",
-      "access_type": "index",
-      "key": "BCD_is_valid_139e97715daf4370_uniq",
-      "used_key_parts": [
-        "is_valid"
-      ],
-      "key_length": "1",
-      "rows_examined_per_scan": 25990,
-      "rows_produced_per_join": 25990,
-      "filtered": "100.00",
-      "using_index": true,
-      "cost_info": {
-        "read_cost": "737.00",
-        "eval_cost": "5198.00",
-        "prefix_cost": "5935.00",
-        "data_read_per_join": "811M"
-      }
+    "ordering_operation": {
+      "using_filesort": false,
+      "nested_loop": [
+        {
+          "table": {
+            "table_name": "A",
+            "access_type": "ref",
+            "possible_keys": [
+              "idx_a",
+              "idx_b",
+              "idx_c",
+              "idx_sk",
+              "idx_sc",
+              "idx_s",
+              "idx_g",
+              "idx_sk",
+              "idx_sc"
+            ],
+            "key": "idx_b",
+            "used_key_parts": [
+              "..."
+            ],
+            "key_length": "4",
+            "ref": [
+              "const"
+            ],
+            "rows_examined_per_scan": 1,
+            "rows_produced_per_join": 0,
+            "filtered": "5.00",
+            "cost_info": {
+              "read_cost": "1.00",
+              "eval_cost": "0.01",
+              "prefix_cost": "1.20",
+              "data_read_per_join": "1K"
+            },
+            "used_columns": [
+              "updated_at",
+              "id",
+              "name",
+              "status"
+            ],
+            "attached_condition": "",
+            "attached_subqueries": [
+              {
+                "dependent": true,
+                "cacheable": false,
+                "query_block": {
+                  "select_id": 3,
+                  "cost_info": {
+                    "query_cost": "1.20"
+                  },
+                  "table": {
+                    "table_name": "B",
+                    "access_type": "ref",
+                    "possible_keys": [
+                      "idx_ba",
+                      "idx_bb"
+                    ],
+                    "key": "idx_bb",
+                    "used_key_parts": [
+                      "user_id"
+                    ],
+                    "key_length": "6",
+                    "ref": [
+                      "const"
+                    ],
+                    "rows_examined_per_scan": 1,
+                    "rows_produced_per_join": 1,
+                    "filtered": "100.00",
+                    "using_index": true,
+                    "cost_info": {
+                      "read_cost": "1.00",
+                      "eval_cost": "0.20",
+                      "prefix_cost": "1.20",
+                      "data_read_per_join": "333"
+                    },
+                    "used_columns": [
+                      "user_id",
+                      "for_test"
+                    ]
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "table": {
+            "table_name": "C",
+            "access_type": "ref",
+            "possible_keys": [
+              "idx_ca",
+              "idx_cb",
+              "idx_cc"
+            ],
+            "key": "idx_ca",
+            "used_key_parts": [
+              "user_id"
+            ],
+            "key_length": "4",
+            "ref": [
+              "const"
+            ],
+            "rows_examined_per_scan": 1,
+            "rows_produced_per_join": 0,
+            "filtered": "5.00",
+            "cost_info": {
+              "read_cost": "0.05",
+              "eval_cost": "0.00",
+              "prefix_cost": "1.26",
+              "data_read_per_join": "0"
+            },
+            "used_columns": [
+              "id",
+              "user_id"
+            ],
+            "attached_condition": ""
+          }
+        },
+        {
+          "table": {
+            "table_name": "D",
+            "access_type": "eq_ref",
+            "possible_keys": [
+              "idx_da",
+              "idx_db"
+            ],
+            "key": "idx_da",
+            "used_key_parts": [
+              "user_id"
+            ],
+            "key_length": "4",
+            "ref": [
+              "rc.A.id"
+            ],
+            "rows_examined_per_scan": 1,
+            "rows_produced_per_join": 0,
+            "filtered": "99.00",
+            "cost_info": {
+              "read_cost": "0.00",
+              "eval_cost": "0.00",
+              "prefix_cost": "1.26",
+              "data_read_per_join": "3"
+            },
+            "used_columns": [
+              "id",
+              "user_id",
+              "status",
+              "state"
+            ]
+          }
+        },
+        {
+          "table": {
+            "table_name": "E",
+            "access_type": "ref",
+            "possible_keys": [
+              "idx_ea",
+              "idx_eb",
+              "idx_ec"
+            ],
+            "key": "idx_ec",
+            "used_key_parts": [
+              "user_id"
+            ],
+            "key_length": "4",
+            "ref": [
+              "rc.D.user_id"
+            ],
+            "rows_examined_per_scan": 2,
+            "rows_produced_per_join": 0,
+            "filtered": "100.00",
+            "cost_info": {
+              "read_cost": "0.00",
+              "eval_cost": "0.00",
+              "prefix_cost": "1.26",
+              "data_read_per_join": "1"
+            },
+            "used_columns": [
+              "id",
+              "system_id",
+              "user_id"
+            ]
+          }
+        }
+      ]
     }
   }
 }
