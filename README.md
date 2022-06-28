@@ -11,7 +11,7 @@ Turn MySQL Explain JSON into vector UML sequence diagrams
 
 We can turn
 ```json
-{{
+{
   "query_block": {
     "select_id": 1,
     "cost_info": {
@@ -27,13 +27,7 @@ We can turn
             "possible_keys": [
               "idx_a",
               "idx_b",
-              "idx_c",
-              "idx_sk",
-              "idx_sc",
-              "idx_s",
-              "idx_g",
-              "idx_sk",
-              "idx_sc"
+              "idx_c"
             ],
             "key": "idx_b",
             "used_key_parts": [
@@ -168,39 +162,6 @@ We can turn
               "state"
             ]
           }
-        },
-        {
-          "table": {
-            "table_name": "E",
-            "access_type": "ref",
-            "possible_keys": [
-              "idx_ea",
-              "idx_eb",
-              "idx_ec"
-            ],
-            "key": "idx_ec",
-            "used_key_parts": [
-              "user_id"
-            ],
-            "key_length": "4",
-            "ref": [
-              "rc.D.user_id"
-            ],
-            "rows_examined_per_scan": 2,
-            "rows_produced_per_join": 0,
-            "filtered": "100.00",
-            "cost_info": {
-              "read_cost": "0.00",
-              "eval_cost": "0.00",
-              "prefix_cost": "1.26",
-              "data_read_per_join": "1"
-            },
-            "used_columns": [
-              "id",
-              "system_id",
-              "user_id"
-            ]
-          }
         }
       ]
     }
@@ -210,7 +171,7 @@ We can turn
 
 into
 
-![Image](public/visualization.png)
+<img src="public/visualization.png" align="center">
 
 
 ## Thanks
